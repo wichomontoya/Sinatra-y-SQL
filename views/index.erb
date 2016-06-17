@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Herores</title>
+</head>
+<body>
+	<div>
+		<h2>Aplicacion Heroes</h2>
+		<%if @heroes != nil%>
+			<ol>
+				<%@heroes.each do |heroe|%>
+					<li>
+						<a href="/heroes/<%=heroe.id%>">
+							<%= heroe.nombre%>
+						</a>
+						<!-- <%= heroe.nivelDePoder%> -->
+					</li>	
+				<%end%>
+			</ol>
+		<%end%>
+	</div>
+	<div>
+		<a href="/heroes/new">Agregar Heroe</a>
+	</div>
+</body>
+</html>
