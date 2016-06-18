@@ -44,3 +44,19 @@ post '/heroes/crear' do
 	redirect to('/')
 end
 
+get '/heroes/:heroe_id/edit' do
+	resultados=@conn.exec("SELECT * FROM heroes WHERE heroes.id=$1",[params[:heroe_id]])
+	@heroe=Heroe.new(resultados[0]['nombre'],resultados[0]['nivel_de_poder'],resultados[0]['id'])
+	erb :edit
+end
+
+post '/heroes/update' do
+	@conn.exec("UPDATE heroes SET nombre=$1,nivel_de_poder=$2 WHERE id=$3",[params[:nombre],params[:nivelDePoder],params[:id]])
+	redirect to ("/heroes/"+params[:id])
+end
+
+get '/heroes/delete/:heroe_id' do
+	@conn.exec("DELETE FROM heroes WHERE heroes.id=$1",[params[:heroe_id]])
+	redirect to ("/")
+end
+

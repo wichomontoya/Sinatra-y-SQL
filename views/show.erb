@@ -9,5 +9,7 @@
 		<h2><%=@heroe.nombre%></h2>
 		<p><b>Nivel de Poder: </b><%=@heroe.nivelDePoder%></p>
 	</div>
+	<a href="/heroes/<%=@heroe.id%>/edit">Editar Heroe</a>
+	<a href="/heroes/delete/<%=@heroe.id%>">Borrar Heroe</a>
 </body>
 </html>

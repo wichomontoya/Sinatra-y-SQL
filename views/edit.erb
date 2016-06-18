@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Actualizar Heroe</title>
+</head>
+<body>
+	<form action="/heroes/update" method="post">
+		<div>
+			<lable for="nombre">Nombre: </lable>
+			<input type="text" value="<%=@heroe.nombre%>" name="nombre">
+			<lable for="nivelDePoder">Nivel de Poder: </lable>
+			<input type="text" value="<%=@heroe.nivelDePoder%>" name="nivelDePoder">
+		</div>
+		<input type="hidden" name="id" value="<%=@heroe.id%>">
+		<input type="submit" value="Actualizar heroe">
+	</form>
+</body>
+</html>
